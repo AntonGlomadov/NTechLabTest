@@ -36,6 +36,7 @@ void transpose(RandomIterator first, RandomIterator last, int m)
   *
   */
 Matrix TransposeMatrix(Matrix matrix) {
+    if (matrix.data.empty()) return matrix;
     transpose(matrix.data.begin(),matrix.data.end(),matrix.width);
     std::swap(matrix.height,matrix.width);
     return matrix;
