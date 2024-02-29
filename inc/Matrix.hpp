@@ -11,7 +11,7 @@ struct Matrix {
 template<class RandomIterator>
 void transpose(RandomIterator first, RandomIterator last, int m)
 {
-    const int mn1 = (last - first - 1);
+    const int m1 = (last - first - 1);
     const int n   = (last - first) / m;
     std::vector<bool> visited(last - first);
     RandomIterator cycle = first;
@@ -20,7 +20,7 @@ void transpose(RandomIterator first, RandomIterator last, int m)
             continue;
         int a = cycle - first;
         do  {
-            a = a == mn1 ? mn1 : (n * a) % mn1;
+            a = a == m1 ? m1 : (n * a) % m1;
             std::swap(*(first + a), *cycle);
             visited[a] = true;
         } while ((first + a) != cycle);
